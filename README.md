@@ -133,7 +133,9 @@ Render Deployed Application Link: \*\*\*
 
 ## Credits \*\*\*
 
-Used the following sources as tutorials and guidelines:
+Used the following starter code and sources as tutorials and guidelines:
+
+[Starter code repository provided by UT Austin Coding Boot Camp](https://github.com/coding-boot-camp/solid-broccoli)
 
 [ChatGPT](https://chatgpt.com/?oai-dm=1)
 
