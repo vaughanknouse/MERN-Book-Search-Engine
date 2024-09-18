@@ -5,7 +5,7 @@ const path = require('path');
 const { authMiddleware } = require('./utils/auth'); // Authentication middleware for JWT token validation
 
 const { typeDefs, resolvers } = require('./schemas'); // Import typeDefs and resolvers for GraphQL schema
-const db = require('./config/connection');
+const db = require('./config/connection'); // Import the database connection
 
 const PORT = process.env.PORT || 3001;
 const app = express();
