@@ -32,14 +32,25 @@ const SavedBooks = () => {
         variables: { bookId }, // Pass the bookId as a variable to the mutation so the book can be removed
       });
 
-      if (!data) {
-        throw new Error('Something went wrong!'); // If there's no data, throw an error and exit the function
+      // Log the response data for debugging
+      console.log('Mutation response:', data);
+
+      // Check for errors in the response
+      if (!data || !data.removeBook) {
+        // If there's no data or the mutation response is empty or null
+        throw new Error( // Throw an error with a message
+          'No data returned from the mutation or mutation failed'
+        );
       }
 
       // Remove the book's ID from localStorage
       removeBookId(bookId);
     } catch (err) {
-      console.error(err); // If there's an error, log the error to the console
+      // Log the error for debugging
+      console.error('Error removing book:', err);
+
+      // Optionally show a user-friendly error message
+      alert('Failed to remove the book. Please try again later.');
     }
   };
 
