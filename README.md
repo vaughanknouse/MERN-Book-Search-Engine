@@ -15,7 +15,7 @@
   - [Screenshots: \*\*\*](#screenshots-)
 - [Tests](#tests)
 - [Links \*\*\*](#links-)
-- [Credits \*\*\*](#credits-)
+- [Credits](#credits)
 - [License](#license)
 - [Questions](#questions)
 
@@ -111,11 +111,16 @@ The following screenshots demonstrate the application's functionality and appear
 
 **Login/Signup:**
 
-![Shows image of the Login/Signup..](assets/images/login-signup-screenshot.png)
+![Shows image of the Login.](assets/images/login-screenshot.png)
+![Shows image of the Sign Up.](assets/images/signup-screenshot.png)
 
 **Homepage while Logged In:**
 
 ![Shows image of the Homepage while logged in.](assets/images/homepage-loggedin-screenshot.png)
+
+**Book Search Results while Logged in:**
+
+![Shows image of the Homepage while logged in.](assets/images/results-loggedin-screenshot.png)
 
 **Saved Books Page:**
 
@@ -131,11 +136,19 @@ GitHub Repository: <https://github.com/vaughanknouse/MERN-Book-Search-Engine>
 
 Render Deployed Application Link: \*\*\*
 
-## Credits \*\*\*
+## Credits
 
 Used the following starter code and sources as tutorials and guidelines:
 
 [Starter code repository provided by UT Austin Coding Boot Camp](https://github.com/coding-boot-camp/solid-broccoli)
+
+[GraphQL Query](https://graphql.org/learn/queries/)
+
+[Resolvers](https://www.apollographql.com/docs/apollo-server/data/resolvers/)
+
+[Mutations](https://www.apollographql.com/docs/react/data/mutations/)
+
+[Authentication in GraphQL API](https://www.apollographql.com/docs/react/networking/authentication/)
 
 [ChatGPT](https://chatgpt.com/?oai-dm=1)
 
