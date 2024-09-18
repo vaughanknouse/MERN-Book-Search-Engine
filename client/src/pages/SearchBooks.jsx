@@ -24,7 +24,7 @@ const SearchBooks = () => {
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
     return () => saveBookIds(savedBookIds); // Save the `savedBookIds` list to localStorage
-  });
+  }, [savedBookIds]); // Run only when savedBookIds changes
 
   // create method to search for books and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -50,6 +50,7 @@ const SearchBooks = () => {
         title: book.volumeInfo.title, // Store the book's title
         description: book.volumeInfo.description, // Store the book's description
         image: book.volumeInfo.imageLinks?.thumbnail || '', // Store the book's image or an empty string if there is no image
+        link: book.volumeInfo.infoLink, // Store the book's info link to view more information about the book
       }));
 
       setSearchedBooks(bookData); // Set the `searchedBooks` state to the new array of book data
@@ -125,6 +126,8 @@ const SearchBooks = () => {
           {searchedBooks.map((book) => {
             return (
               <Col md='4' key={book.bookId}>
+                {' '}
+                {/* Set the key to the book's `bookId` */}
                 <Card border='dark'>
                   {book.image ? (
                     <Card.Img
@@ -137,6 +140,11 @@ const SearchBooks = () => {
                     <Card.Title>{book.title}</Card.Title>
                     <p className='small'>Authors: {book.authors.join(', ')}</p>
                     <Card.Text>{book.description}</Card.Text>
+                    {/* Always show the View on Google Books button */}
+                    <Button href={book.link} target='_blank'>
+                      View on Google Books
+                    </Button>
+                    {/* Show the Save this Book button only if the user is logged in */}
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedBookIds.includes(book.bookId)}
