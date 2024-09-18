@@ -74,9 +74,17 @@ const SearchBooks = () => {
     }
 
     try {
+      // Provide a default value for description if it's missing from the book data
+      const bookWithDefaultDescription = {
+        // Create a new object with the book data and a default description
+        ...bookToSave, // Spread the bookToSave object into a new object
+        description: bookToSave.description || 'No description available', // Set a default description if none exists
+      };
+
       // Call the SAVE_BOOK mutation with the book data and token
       const { data } = await saveBook({
-        variables: { input: bookToSave }, // Pass the book data to the mutation as the `input` variable
+        // Destructure the `data` object from the response returned by the `saveBook` mutation
+        variables: { input: bookWithDefaultDescription }, // Pass the book data to the mutation as the `input` variable
       });
 
       console.log(data); // Log the response data to the console

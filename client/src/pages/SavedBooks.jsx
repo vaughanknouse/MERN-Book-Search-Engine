@@ -80,6 +80,11 @@ const SavedBooks = () => {
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors.join(', ')}</p>
                   <Card.Text>{book.description}</Card.Text>
+                  {/* Always show the View on Google Books button */}
+                  <Button href={book.link} target='_blank'>
+                    View on Google Books
+                  </Button>
+                  {/* Show the Save this Book button only if the user is logged in */}
                   <Button
                     className='btn-block btn-danger'
                     onClick={() => handleDeleteBook(book.bookId)}
