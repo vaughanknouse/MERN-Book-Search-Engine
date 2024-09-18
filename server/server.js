@@ -19,10 +19,11 @@ const server = new ApolloServer({
 const startApolloServer = async () => {
   await server.start(); // Start the Apollo Server
 
+  // Middleware to parse incoming URL-encoded and JSON data
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
-  // Apply Apollo middleware to the '/graphql' route
+  // Apply Apollo middleware to the '/graphql' route with the authMiddleware for authentication
   app.use(
     '/graphql',
     expressMiddleware(server, {
@@ -42,8 +43,8 @@ const startApolloServer = async () => {
   // Start the Express server after the database connection is established and the Apollo server is started
   db.once('open', () => {
     app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+      console.log(`API server running on port ${PORT}!`); // Log that the API server is running
+      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`); // Log the GraphQL endpoint
     });
   });
 };
