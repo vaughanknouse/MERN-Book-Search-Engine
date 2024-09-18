@@ -2,14 +2,20 @@
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-## Description \*\*\* <!-- omit in toc -->
+## Description <!-- omit in toc -->
+
+In response to the growing demand for efficient and personalized data handling in web applications, as well as the need for users to search for new books and manage their book lists, this week’s challenge from the UT Austin Coding Boot Camp involves refactoring an existing Google Books API search engine from a RESTful API to a GraphQL API. By implementing a GraphQL API with Apollo Server, the MERN Book Search Engine enables more efficient, on-demand data retrieval and management.
+
+The MERN Book Search Engine allows users to effortlessly search for books using the Google Books API and save their favorite titles for future reference. It also supports secure login, sign-up, and access to saved books. Built with the MERN stack (MongoDB, Express.js, React, Node.js), this application leverages GraphQL to enhance data retrieval and management, boosting performance and flexibility while delivering a modern, responsive user experience. Deployed on Render with MongoDB Atlas for database management, it provides a streamlined and efficient book browsing experience for avid readers.
+
+By addressing the need for efficient book discovery and management, the MERN Book Search Engine significantly enhances user satisfaction. It demonstrates the advantages of modern web technologies in transforming user experiences through precise data management, secure JWT-based authentication, and a responsive design.
 
 ## Table of Contents <!-- omit in toc -->
 
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
-- [Technologies Used \*\*\*](#technologies-used-)
-- [Features \*\*\*](#features-)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Screenshots](#screenshots)
@@ -61,9 +67,40 @@ WHEN I click on the Logout button
 THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button
 ```
 
-## Technologies Used \*\*\*
+## Technologies Used
 
-## Features \*\*\*
+- **MongoDB:** NoSQL database for storing user data and saved books.
+- **MongoDB Atlas:** Cloud-based storage for the MongoDB database.
+- **Mongoose:** ODM (Object Data Modeling) library for managing MongoDB data in Node.js.
+- **Express.js:** Web framework for building the server and handling API requests.
+- **Node.js:** JavaScript runtime for building a scalable, efficient server-side application.
+- **React.js:** Front-end library for building the user interface.
+- **GraphQL:** Query language for APIs, used to fetch and modify data.
+- **Apollo Server:** Handles GraphQL requests on the server.
+- **Apollo Client:** Connects the front-end React application to the Apollo Server.
+- **JWT (JSON Web Tokens):** Manages user authentication and authorization securely.
+- **Bcrypt:** Library for hashing passwords and enhancing security.
+- **Nodemon:** Utility that monitors changes in application source code and automatically restarts the server.
+- **Bootstrap** CSS framework for building responsive, mobile-first designs.
+- **react-router-dom:** Library for routing and navigation in React applications.
+- **Vite:** Build tool that provides a faster development experience for React applications.
+- **concurrently:** Used for running the server and front-end applications simultaneously during development.
+- **Google Books API:** Provides book search functionality for the application.
+- **Render:** Deployment platform used for hosting the application.
+
+## Features
+
+- **Book Search:** Effortlessly search for books by title using the Google Books API.
+- **User Authentication:** Securely sign up or log in to access personalized features, including saving your favorite book and/or managing your saved list.
+- **Save Books:** Save searched books to your personal saved list for future reference and easy access with a single click.
+- **View Saved Books:** View an organized list of your saved books on a single page as well as their details.
+- **Remove Saved Books:** Easily remove books from your saved list with a single click if you no longer wish to keep a book in your collection.
+- **Book Details:** Access detailed information about each searched book, including title, author, description, image, and a link that directs you to the Google Books site.
+- **GraphQL API Integration:** Utilize GraphQL API for efficient querying and mutation of data, allowing for seamless interaction with user and book data, enhancing performance and flexibility.
+- **Optimized Data Fetching:** GraphQL ensures that only the necessary data is fetched for each request, improving performance and user experience.
+- **Google Books API Integration:** Provides users with an up-to-date and comprehensive database of books to search through in real-time.
+- **Responsive Design:** Enjoy a consistent and user-friendly experience across all devices, including desktop and mobile platforms, ensuring functionality and readability on any screen size.
+- **Interactive UI:** Experience an intuitive and engaging user interface for managing your saved books that is designed to be interactive, making it easy to navigate, search, and organize your book collection.
 
 ## Installation
 
