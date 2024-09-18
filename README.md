@@ -10,11 +10,11 @@
 - [Acceptance Criteria](#acceptance-criteria)
 - [Technologies Used \*\*\*](#technologies-used-)
 - [Features \*\*\*](#features-)
-- [Installation \*\*\*](#installation-)
-- [Usage \*\*\*](#usage-)
-  - [Screenshots: \*\*\*](#screenshots-)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Screenshots](#screenshots)
 - [Tests](#tests)
-- [Links \*\*\*](#links-)
+- [Links](#links)
 - [Credits](#credits)
 - [License](#license)
 - [Questions](#questions)
@@ -65,9 +65,7 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 
 ## Features \*\*\*
 
-## Installation \*\*\*
-
-To install the MERN Book Search Engine, follow these steps:
+## Installation
 
 1. **Clone the Repository**:
 
@@ -75,7 +73,7 @@ To install the MERN Book Search Engine, follow these steps:
    git clone https://github.com/vaughanknouse/MERN-Book-Search-Engine.git
    ```
 
-2. **Install Node.js**: Ensure that the current version of Node.js is installed on your machine.
+2. **Install Node.js, npm, and MongoDB**: Ensure that the current versions of Node.js, npm, and MongoDB are installed on your machine.
 
 3. **Navigate to the Project Directory**:
 
@@ -89,19 +87,28 @@ To install the MERN Book Search Engine, follow these steps:
    npm install
    ```
 
-## Usage \*\*\*
+## Usage
 
-After completing the installation, follow these steps to use the MERN Book Search Engine project:
+To use the MERN Book Search Engine, you can either access the deployed version on Render or host the application locally.
 
-1. **Start the server**: Invoke the application using the following command:
+**Option 1: Deployed Version:** Visit the following link to use the app online: <https://mern-book-search-engine-2zkt.onrender.com>
+
+**Option 2: Hosting Locally:**
+If you prefer to host the application locally, follow these steps:
+
+1. **Start the server**: After completing the installation steps (see Installation), invoke the application by running:
 
    ```bash
     npm run develop
    ```
 
-2. **Navigate to the Application**: Open a browser and navigate to <http://localhost:3000>.
+2. **Access the Application:** Open a browser and navigate to <http://localhost:3000>.
+3. **Book Search Interface:** Upon loading the application, you'll see the Book Search Engine interface with options to "Search for Books," "Login/Signup," and a search bar to search for a book.
+4. **User Account Access:** When you click "Login/Signup," a modal will prompt you to log in or sign up, allowing you to create a new account or log in to an existing one.
+5. **Search and Save Books:** After logging in, you can search for a book by entering its name in the search bar. The results will display relevant books, and you can save any book to your saved list by clicking "Save This Book!".
+6. **View, Manage, and Delete Saved Books:** By navigating to "My Saved Books", you can view your list of saved books. If desired, you can remove any saved book by clicking "Delete this Book".
 
-### Screenshots: \*\*\*
+### Screenshots
 
 The following screenshots demonstrate the application's functionality and appearance:
 
@@ -109,7 +116,7 @@ The following screenshots demonstrate the application's functionality and appear
 
 ![Shows image of the Homepage.](assets/images/homepage-screenshot.png)
 
-**Login/Signup:**
+**Login/Sign Up:**
 
 ![Shows image of the Login.](assets/images/login-screenshot.png)
 ![Shows image of the Sign Up.](assets/images/signup-screenshot.png)
@@ -130,11 +137,11 @@ The following screenshots demonstrate the application's functionality and appear
 
 There is no testing involved for this application.
 
-## Links \*\*\*
+## Links
 
 GitHub Repository: <https://github.com/vaughanknouse/MERN-Book-Search-Engine>
 
-Render Deployed Application Link: \*\*\*
+Render Deployed Application Link: <https://mern-book-search-engine-2zkt.onrender.com>
 
 ## Credits
 
