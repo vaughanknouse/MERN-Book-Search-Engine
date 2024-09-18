@@ -1,47 +1,57 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+import { useMutation } from '@apollo/client'; // Import useMutation hook from Apollo Client
+import { ADD_USER } from '../utils/mutations'; // Import the ADD_USER mutation
 
-import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 const SignupForm = () => {
-  // set initial form state
-  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
-  // set state for form validation
+  // Set initial form state
+  const [userFormData, setUserFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+  // Set state for form validation
   const [validated] = useState(false);
-  // set state for alert
+  // Set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
+  // Use the ADD_USER mutation hook
+  const [addUser] = useMutation(ADD_USER);
+
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    // Handle input changes in the form
+    const { name, value } = event.target; // Destructure the name and value properties from the event target (input element)
+
+    setUserFormData({ ...userFormData, [name]: value }); // Update the userFormData state with the new input value
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
+    // Check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget; // Get the form element
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      // Check if the form is valid
+      event.preventDefault(); // Prevent form submission if form is invalid
+      event.stopPropagation(); // Prevent default behavior
     }
 
     try {
-      const response = await createUser(userFormData);
+      // Call the ADD_USER mutation with the userFormData
+      const { data } = await addUser({
+        // Destructure the data object from the response
+        variables: { ...userFormData }, // Pass the form data as variables to the mutation
+      });
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
-
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
+      Auth.login(data.addUser.token); // Log in the user with the token received from the server
     } catch (err) {
+      // Catch any errors and log them to the console
       console.error(err);
-      setShowAlert(true);
     }
 
+    // Reset form data after submission to clear the form
     setUserFormData({
       username: '',
       email: '',
@@ -53,8 +63,13 @@ const SignupForm = () => {
     <>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+        {/* Show alert if server response is bad */}
+        <Alert
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant='danger'
+        >
           Something went wrong with your signup!
         </Alert>
 
@@ -68,7 +83,9 @@ const SignupForm = () => {
             value={userFormData.username}
             required
           />
-          <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>
+            Username is required!
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -81,7 +98,9 @@ const SignupForm = () => {
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>
+            Email is required!
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3'>
@@ -94,12 +113,21 @@ const SignupForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Control.Feedback type='invalid'>
+            Password is required!
+          </Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+          disabled={
+            !(
+              userFormData.username &&
+              userFormData.email &&
+              userFormData.password
+            )
+          }
           type='submit'
-          variant='success'>
+          variant='success'
+        >
           Submit
         </Button>
       </Form>
